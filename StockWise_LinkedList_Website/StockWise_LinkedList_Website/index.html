@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StockWise | Linked List Inventory</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="logo">S</div><div><h1>StockWise</h1><p>Inventory Stock Tracker · Singly Linked List</p></div><span class="pill">● Standalone website</span></header>
+<main class="wrap">
+<section class="hero"><div><small>DATA STRUCTURES PROJECT</small><h2>Manage your inventory,<br><span>node by node.</span></h2><p>A visual companion to your C++ linked-list project. Add, search, update and delete products while watching the list change.</p></div><div class="diagram"><div class="sample">HEAD<br><b>101</b></div><span>→</span><div class="sample">NODE<br><b>102</b></div><span>→</span><div class="sample muted">NULL<br><b>∅</b></div></div></section>
+<section class="stats">
+<div class="stat"><label>Total products</label><strong id="totalProducts">0</strong><small>Nodes in linked list</small></div>
+<div class="stat"><label>Total units</label><strong id="totalUnits">0</strong><small>Combined stock quantity</small></div>
+<div class="stat"><label>Inventory value</label><strong id="totalValue">₹0.00</strong><small>Quantity × unit price</small></div>
+<div class="stat"><label>Low-stock items</label><strong id="lowStock">0</strong><small>5 units or fewer</small></div>
+</section>
+<section class="columns">
+<article class="panel">
+<div class="panel-title"><div><small>NODE OPERATIONS</small><h3 id="formTitle">Add a product</h3></div><span class="tag">NEW NODE</span></div>
+<form id="productForm">
+<label for="productId">Product ID</label><input id="productId" type="number" min="1" step="1" placeholder="e.g. 101" required>
+<label for="productName">Product name</label><input id="productName" maxlength="60" placeholder="e.g. Wireless Mouse" required>
+<div class="two"><div><label for="quantity">Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="10" required></div><div><label for="price">Unit price (₹)</label><input id="price" type="number" min="0" step="0.01" placeholder="499.00" required></div></div>
+<div class="actions"><button class="primary" id="submitBtn">＋ Add to list</button><button class="secondary hidden" type="button" id="cancelEdit">Cancel</button></div>
+<p class="hint">Each product is represented as a node with a <code>next</code> pointer.</p>
+</form>
+</article>
+<article class="panel">
+<div class="panel-title"><div><small>MEMORY VIEW</small><h3>Singly linked list</h3></div><span class="head-tag">● HEAD</span></div>
+<div class="legend"><span>■ Product node</span><span>→ next pointer</span></div><div id="linkedList" class="linked-list"></div>
+<div class="list-footer"><span id="listLength">0 nodes</span><span>Last pointer → <b>NULL</b></span></div>
+</article>
+</section>
+<section class="panel inventory">
+<div class="inventory-head"><div><small>INVENTORY RECORDS</small><h3>All products</h3></div><div class="tools"><input id="searchInput" type="search" placeholder="Search name or ID..."><button id="resetDemo" class="secondary" type="button">Reset demo</button></div></div>
+<div class="table-wrap"><table><thead><tr><th>PRODUCT</th><th>ID</th><th>QUANTITY</th><th>UNIT PRICE</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="productRows"></tbody></table><div id="emptyState" class="empty hidden">No products found. Add a product or change your search.</div></div>
+</section>
+<div class="note"><b>DSA note:</b> This website demonstrates the linked-list idea in JavaScript only. It runs separately from your C++ console program and uses no API. Website changes are saved in this browser with localStorage.</div>
+<footer>StockWise · Beginner-friendly DSA project <span>Built with HTML, CSS & JavaScript</span></footer>
+</main><div id="toast" class="toast"></div><script src="script.js"></script>
+</body></html>
